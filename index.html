@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>天気予報と服装アドバイス</title>
+</head>
+<body>
+    <h1>天気予報と服装アドバイス</h1>
+
+    <!-- 都市の選択メニュー -->
+    <label for="city">都市を選択してください:</label>
+    <select id="city">
+        <option value="35.6895,139.6917">東京</option>
+        <option value="34.6937,135.5023">大阪</option>
+        <option value="35.1815,136.9066">名古屋</option>
+        <option value="43.0621,141.3544">札幌</option>
+        <option value="35.0116,135.7681">京都</option>
+        <option value="33.5902,130.4017">福岡</option>
+        <option value="38.2682,140.8694">仙台</option>
+        <option value="34.3853,132.4553">広島</option>
+    </select>
+    <button onclick="getWeather()">天気を取得</button>
+
+    
+
+    <!-- 天気予報テーブル -->
+    <table class="weather-table" id="weather-table">
+        <thead>
+            <tr>
+                <th>時刻</th>
+                <th>天気</th>
+                <th>気温 (°C)</th>
+                <th>降水確率 (%)</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <!-- 服装アドバイステーブル -->
+    <h2>服装アドバイス</h2>
+    <!-- 性別選択ボタン -->
+    <div class="gender-buttons">
+        <button onclick="setGender('male')">男性</button>
+        <button onclick="setGender('female')">女性</button>
+    </div>
+    <div id="clothing-advice">天気データを取得後に服装アドバイスが表示されます。</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
