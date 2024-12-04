@@ -10,7 +10,6 @@
     <h1>天気予報と服装アドバイス</h1>
 
     <!-- 都市の選択メニュー -->
-    <label for="city">都市を選択してください:</label>
     <select id="city">
         <option value="35.6895,139.6917">東京</option>
         <option value="34.6937,135.5023">大阪</option>
@@ -22,8 +21,6 @@
         <option value="34.3853,132.4553">広島</option>
     </select>
     <button onclick="getWeather()">天気を取得</button>
-
-    
 
     <!-- 天気予報テーブル -->
     <table class="weather-table" id="weather-table">
@@ -38,15 +35,36 @@
         <tbody></tbody>
     </table>
 
-    <!-- 服装アドバイステーブル -->
+    <!-- 服装アドバイス -->
     <h2>服装アドバイス</h2>
-    <!-- 性別選択ボタン -->
-    <div class="gender-buttons">
-        <button onclick="setGender('male')">男性</button>
-        <button onclick="setGender('female')">女性</button>
-    </div>
     <div id="clothing-advice">天気データを取得後に服装アドバイスが表示されます。</div>
 
+    <!-- 写真アップロードフォーム -->
+    <form id="photo-upload-form">
+        <h3>服の写真を登録</h3>
+        <label for="clothing-type">服の種類:</label>
+        <select id="clothing-type">
+            <option value="Tシャツ">Tシャツ</option>
+            <option value="ズボン">ズボン</option>
+            <option value="コート">コート</option>
+            <option value="ジャケット">ジャケット</option>
+        </select>
+    
+        <label for="temperature-range">着たい気温:</label>
+        <input type="number" id="min-temp" placeholder="最低気温 (°C)">
+        <input type="number" id="max-temp" placeholder="最高気温 (°C)">
+    
+        <label for="clothing-photo">写真を選択:</label>
+        <input type="file" id="clothing-photo" accept="image/*" onchange="displayImage(event)">
+        
+        <!-- 選択された画像を表示 -->
+        <img id="clothing-image" style="display: none; max-width: 300px; margin-top: 10px;">
+        
+        <button type="button" onclick="uploadClothingPhoto()">写真を登録</button>
+        <button id="download-button" style="display: none;" onclick="downloadClothingImage()">画像を保存する</button>
+    </form>
+    
+    
     <script src="script.js"></script>
 </body>
 </html>
